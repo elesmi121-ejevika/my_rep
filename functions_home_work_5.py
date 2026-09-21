@@ -75,3 +75,4 @@ def rle_encode(s):
     return result
 
 print(rle_encode(s1))
+print(s1)
