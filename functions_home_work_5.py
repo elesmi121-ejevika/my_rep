@@ -76,3 +76,28 @@ def rle_encode(s):
 
 print(rle_encode(s1))
 print(s1)
+
+
+class Solution(object):
+    def longestCommonPrefix(self, strs):
+        longest_common_prefixes = dict()
+#       lcp_str = " ".join(strs)
+        substring = ''
+        substring_max = ''
+        substring_count_curr = 0
+        substring_count_max = 0
+        for string in strs:
+            i = 0
+            while i < len(string):
+                substring += string[i]
+                for item in strs:
+                    if item.startswith(substring):
+                        substring_count_curr += 1
+                if substring_count_curr >= substring_count_max:
+                    substring_count_max = substring_count_curr
+                    substring_max = substring
+            print(f"{substring_count_max}: {substring}")
+        return 0
+
+str1 = ["flower", "flow", "flight"]
+print(Solution().longestCommonPrefix(str1))
